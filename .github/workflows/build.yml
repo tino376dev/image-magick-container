@@ -48,12 +48,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Delete old GHCR images except latest
-        uses: snok/container-retention-policy@v2
+        uses: snok/container-retention-policy@v3.0.0
         with:
-          account-type: user
-          org-name: tino376dev
+          account: user
           token: ${{ secrets.GHCR_CLEANUP_TOKEN }} # PAT with packages:write & delete scope
           image-names: "image-magick-container"
-          cut-off: 1month
-          keep-at-least: 3
-          skip-tags: latest
+          cut-off: 4w
+          keep-n-most-recent: 3
