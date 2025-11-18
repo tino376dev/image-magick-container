@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Delete old GHCR images except latest
-        uses: snok/container-retention-policy@v3
+        uses: snok/container-retention-policy@v2
         with:
           account: tino376dev
           token: ${{ secrets.GHCR_CLEANUP_TOKEN }} # PAT with packages:write & delete scope
