@@ -50,7 +50,8 @@ jobs:
       - name: Delete old GHCR images except latest
         uses: snok/container-retention-policy@v2
         with:
-          account: tino376dev
+          account-type: user
+          org-name: tino376dev
           token: ${{ secrets.GHCR_CLEANUP_TOKEN }} # PAT with packages:write & delete scope
           image-names: "image-magick-container"
           cut-off: 1month
